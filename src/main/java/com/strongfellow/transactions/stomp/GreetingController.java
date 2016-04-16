@@ -13,7 +13,7 @@ public class GreetingController {
     private static final Logger logger = LoggerFactory.getLogger(GreetingController.class);
 
     @MessageMapping("/hello")
-    @SendTo("/topic/greet")
+    @SendTo("/topic/greetings")
     public Greeting greeting(HelloMessage message) throws Exception {
         logger.info("greeting requested");
         Thread.sleep(1000); // simulated delay
