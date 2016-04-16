@@ -1,4 +1,3 @@
-
 package com.strongfellow.transactions.stomp;
 
 import org.springframework.boot.SpringApplication;
