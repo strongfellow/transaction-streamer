@@ -15,12 +15,12 @@
         }
         
         function connect() {
-            var socket = new SockJS('/hello');
+            var socket = new SockJS('/stomp');
             stompClient = Stomp.over(socket);            
             stompClient.connect({}, function(frame) {
                 setConnected(true);
                 console.log('Connected: ' + frame);
-                stompClient.subscribe('/topic/greetings', function(greeting){
+                stompClient.subscribe('/topic/transactions', function(greeting){
                     showGreeting(JSON.parse(greeting.body).content);
                 });
             });
