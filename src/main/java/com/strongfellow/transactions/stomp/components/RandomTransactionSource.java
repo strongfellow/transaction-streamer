@@ -33,7 +33,7 @@ public class RandomTransactionSource implements TransactionSource {
             public void run() {
                 while (true) {
                     try {
-                        Thread.sleep(RANDOM.nextInt(5000));
+                        Thread.sleep(RANDOM.nextInt(300));
                         q.put(UUID.randomUUID().toString());
                     } catch (InterruptedException ex) {
                         logger.error("problem putting to queue", ex);
