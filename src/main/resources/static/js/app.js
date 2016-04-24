@@ -18,7 +18,11 @@ require([ "sockjs-0.3.4", "stomp", "jquery", "jquery-ui/autocomplete" ], functio
 	p.slideDown({
 	    complete: function() {
 		if ($('#transactions-list p').size() > 5) {
-		    $('#transactions-list p').last().slideUp().remove();
+		    $('#transactions-list p').last().slideUp(
+			{
+			    complete: function() { this.remove(); }
+			}
+		    );
 		}
 	    }
 	});
