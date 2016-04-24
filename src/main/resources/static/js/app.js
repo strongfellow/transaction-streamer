@@ -13,7 +13,15 @@ require([ "sockjs-0.3.4", "stomp", "jquery", "jquery-ui/autocomplete" ], functio
     }
 
     function appendTx(message) {
-	console.log(message.body);
+	var p = $('<p>').html(message.body).hide();
+	$('#transactions-list').prepend(p);
+	p.slideDown({
+	    complete: function() {
+		if ($('#transactions-list p').size() > 5) {
+		    $('#transactions-list p').last().slideUp().remove();
+		}
+	    }
+	});
     }
     
     function connect() {
