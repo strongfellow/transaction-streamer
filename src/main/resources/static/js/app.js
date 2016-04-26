@@ -16,7 +16,6 @@ require([ "sockjs-0.3.4", "stomp", "jquery", "jquery-ui/autocomplete" ], functio
 	var n = 10;
 	var p = $('<p>').html(message.body).hide();
 	$('#transactions-list').prepend(p);
-	$('#transactions-list p').slice(n).slideUp();
 	p.slideDown({
 	    complete: function() {
 		$('#transactions-list p').slice(n).remove();
