@@ -1,6 +1,5 @@
 
 require([ "sockjs-0.3.4", "stomp", "jquery", "jquery-ui/autocomplete" ], function( sock, stomp, $ ) {
-    $("<p>").html("jquery loaded").appendTo("body");
 
     $("#connect").click(connect);
     $("#disconnect").click(disconnect);
@@ -13,14 +12,11 @@ require([ "sockjs-0.3.4", "stomp", "jquery", "jquery-ui/autocomplete" ], functio
     }
 
     function appendTx(message) {
-	var n = 10;
-	var p = $('<p>').html(message.body).hide();
-	$('#transactions-list').prepend(p);
-	p.slideDown({
-	    complete: function() {
-		$('#transactions-list p').slice(n).remove();
-	    }
-	});
+        var p = $('<p>').html(message.body).hide().addClass('tx');
+	    $('#transactions-list').prepend(p);
+	    $('#transactions-list p').slice(20).remove();        
+	    p.slideDown(400, function() {
+	    });
     }
     
     function connect() {
